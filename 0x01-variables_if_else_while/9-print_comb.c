@@ -4,7 +4,7 @@
  * main - Entry point of the program.
  *
  * Description: This program prts all possible combinations of single-digit no,
- * separated by ", ", in ascending order, using a maximum of four putchar calls.
+ * separatd by ", ", in ascending order, using a maximum of four putchar calls.
  *
  * Return: Always 0 (Success).
  */
