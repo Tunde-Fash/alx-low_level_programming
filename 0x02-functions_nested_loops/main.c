@@ -1,42 +1,30 @@
 #include "main.h"
 
 /**
- * _putchar - Writes a character to stdout
- * @c: The character to print
- *
- * Return: On success, 1. On error, -1 is returned.
+ * print_alphabet - Prints the lowercase alphabet followed by a new line.
  */
-int _putchar(char c)
+void print_alphabet(void)
 {
-	return write(1, &c, 1);
-}
+	char letter = 'a';
 
-/**
- * print_putchar - Prints "_putchar" followed by a new line
- */
-void print_putchar(void)
-{
-	char str[] = "_putchar\n";
-	int i = 0;
-
-	while (str[i] != '\0')
+	while (letter <= 'z')
 	{
-		_putchar(str[i]);
-		i++;
+		_putchar(letter);
+		letter++;
 	}
+	_putchar('\n');
 }
 
 /**
- * main - Entry point of the program
+ * main - Entry point of the program.
  *
- * Description: This program prints "_putchar" followed by a new line
- * and returns 0.
+ * Description: This program prints the lowercase alphabet followed by a new line.
  *
  * Return: 0 (Success)
  */
 int main(void)
 {
-	print_putchar();
+	print_alphabet();
 	return (0);
 }
 
