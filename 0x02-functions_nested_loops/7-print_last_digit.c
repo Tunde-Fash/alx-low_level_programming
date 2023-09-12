@@ -10,12 +10,6 @@ int print_last_digit(int n)
 {
 	int last_digit;
 
-	if (n == INT_MIN)
-	{
-		_putchar('8');
-		return (8);
-	}
-
 	/* Ensure n is positive for calculation */
 	if (n < 0)
 		n = -n;
