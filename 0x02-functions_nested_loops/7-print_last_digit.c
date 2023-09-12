@@ -1,40 +1,25 @@
 #include "main.h"
 
 /**
- * _putchar - Writes a character to stdout
- * @c: The character to print
+ * print_last_digit - Prints the last digit of a number.
+ * @n: The number to extract and print the last digit from.
  *
- * Return: 1 on success, -1 on error.
- */
-int _putchar(char c)
-{
-	return write(1, &c, 1);
-}
-
-/**
- * print_last_digit - Prints the last digit of a number and returns it
- * @n: The input number
- *
- * Return: The last digit of the number 'n'.
+ * Return: The value of the last digit.
  */
 int print_last_digit(int n)
 {
 	int last_digit;
 
-	if (n == INT_MIN)
-	{
-		last_digit = 8;  // Special case for INT_MIN
-	}
-	else
-	{
-		if (n < 0)
-			n = -n; /* Make sure n is positive */
+	/* Ensure n is positive for calculation */
+	if (n < 0)
+		n = -n;
 
-		last_digit = n % 10;
-	}
+	last_digit = n % 10;
 
-	_putchar(last_digit + '0'); /* Print the last digit as a character */
+	/* Print the last digit */
+	_putchar(last_digit + '0');
 
-	return last_digit;
+	/* Return the value of the last digit */
+	return (last_digit);
 }
 
