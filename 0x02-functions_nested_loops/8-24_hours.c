@@ -1,37 +1,22 @@
+/* jack_bauer.c */
 #include "main.h"
 
 /**
- * _putchar - Writes a character to stdout.
- * @c: The character to be written.
- *
- * Return: On success 1. On error -1.
- */
-int _putchar(char c)
-{
-	return write(1, &c, 1);
-}
-
-/**
- * jack_bauer - Prints every minute of the day of Jack Bauer.
+ * jack_bauer - Prints every minute of the day of Jack Bauer
  */
 void jack_bauer(void)
 {
-	int hour, minute;
+	int h, m;
 
-	for (hour = 0; hour < 24; hour++)
+	for (h = 0; h < 24; h++)
 	{
-		for (minute = 0; minute < 60; minute++)
+	for (m = 0; m < 60; m++)
 		{
-			int hour_tens = hour / 10;
-			int hour_ones = hour % 10;
-			int min_tens = minute / 10;
-			int min_ones = minute % 10;
-
-			_putchar(hour_tens + '0');
-			_putchar(hour_ones + '0');
+			_putchar((h / 10) + '0');
+			_putchar((h % 10) + '0');
 			_putchar(':');
-			_putchar(min_tens + '0');
-			_putchar(min_ones + '0');
+			_putchar((m / 10) + '0');
+			_putchar((m % 10) + '0');
 			_putchar('\n');
 		}
 	}
