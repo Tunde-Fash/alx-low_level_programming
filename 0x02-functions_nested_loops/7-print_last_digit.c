@@ -11,21 +11,13 @@ int print_last_digit(int n)
 	int last_digit;
 
 	if (n < 0)
-	{
-		_putchar('-');
-		if (n == INT_MIN)
-		{
-			_putchar('2');
-			n %= 1000000000;
-			n = -n;
-		}
-		else
-		{
-			n = -n;
-		}
-	}
+		n = -n; // Make it positive temporarily
+
 	last_digit = n % 10;
 	_putchar(last_digit + '0');
+
+	if (n < 0)
+		last_digit = -last_digit; // If n was negative, make last_digit negative
 
 	return (last_digit);
 }
