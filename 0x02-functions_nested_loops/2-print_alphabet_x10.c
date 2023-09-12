@@ -1,5 +1,17 @@
 #include <unistd.h>
 
+// Function prototype for _putchar (custom output function)
+int _putchar(char c);
+
+// Function prototype for print_alphabet_x10
+void print_alphabet_x10(void);
+
+int main(void)
+{
+	print_alphabet_x10();
+	return (0);
+}
+
 /**
  * print_alphabet_x10 - Prints the alphabet in lowercase 10 times, followed by a new line.
  */
@@ -9,16 +21,17 @@ void print_alphabet_x10(void)
 
 	for (int i = 0; i < 10; i++) {
 		while (letter <= 'z') {
-			write(1, &letter, 1);
+			_putchar(letter); // Use your custom _putchar function here.
 			letter++;
 		}
 		letter = 'a';
-		write(1, "\n", 1);
+		_putchar('\n'); // Use your custom _putchar function here.
 	}
 }
 
-int main(void)
+// Custom _putchar function implementation (replace this with your own)
+int _putchar(char c)
 {
-	print_alphabet_x10();
-	return (0);
+	return write(1, &c, 1);
+}
 }

@@ -1,30 +1,45 @@
 #include "main.h"
 
 /**
- * print_alphabet - Prints the lowercase alphabet followed by a new line.
+ * _putchar - Writes a character to stdout
+ * @c: The character to print
+ *
+ * Return: On success, 1. On error, -1 is returned.
  */
-void print_alphabet(void)
+int _putchar(char c)
 {
-	char letter = 'a';
+	return write(1, &c, 1);
+}
 
-	while (letter <= 'z')
+/**
+ * print_alphabet_x10 - Prints the lowercase alphabet ten times followed by a new line.
+ */
+void print_alphabet_x10(void)
+{
+	char letter;
+	int i;
+
+	for (i = 0; i < 10; i++)
 	{
-		_putchar(letter);
-		letter++;
+		letter = 'a';
+		while (letter <= 'z')
+		{
+			_putchar(letter);
+			letter++;
+		}
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
 
 /**
  * main - Entry point of the program.
  *
- * Description: This program prints the lowercase alphabet followed by a new line.
+ * Description: This program prints the lowercase alphabet ten times, each followed by a new line.
  *
  * Return: 0 (Success)
  */
 int main(void)
 {
-	print_alphabet();
+	print_alphabet_x10();
 	return (0);
 }
-
