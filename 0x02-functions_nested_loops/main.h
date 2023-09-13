@@ -1,10 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-/* Function prototype for _putchar */
 int _putchar(char c);
-
-/* Function prototype for times_table */
-void times_table(void);
+void print_alphabet(void);
 
 #endif /* MAIN_H */
