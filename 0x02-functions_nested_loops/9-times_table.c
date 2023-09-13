@@ -1,4 +1,8 @@
-/* times_table - prints the 9 times table, starting with 0 */
+#include "main.h"
+
+/**
+ * times_table - Prints the 9 times table.
+ */
 void times_table(void)
 {
 	int i, j, result;
@@ -9,26 +13,21 @@ void times_table(void)
 		{
 			result = i * j;
 
-			/* Print the result */
-			if (j == 0)
-				_putchar('0');
-			else if (result < 10)
-			{
-			_putchar(' ');
-				_putchar(result + '0');
-			}
-			else
-			{
-				_putchar((result / 10) + '0');
-				_putchar((result % 10) + '0');
-			}
-
-			/* Print a comma and space unless it's the last column */
-			if (j < 9)
+			if (j != 0)
 			{
 				_putchar(',');
 				_putchar(' ');
+
+				if (result < 10)
+					_putchar(' ');
 			}
+
+			if (result >= 10)
+				_putchar(result / 10 + '0');
+			else
+				_putchar(' ');
+
+			_putchar(result % 10 + '0');
 		}
 		_putchar('\n');
 	}
