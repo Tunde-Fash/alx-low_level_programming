@@ -4,7 +4,7 @@
 /* Custom putchar function (you can implement this elsewhere) */
 int _putchar(char c)
 {
-	return write(1, &c, 1);
+	return fwrite(1, &c, 1);
 }
 
 /* Function to print natural numbers from n to 98 */
