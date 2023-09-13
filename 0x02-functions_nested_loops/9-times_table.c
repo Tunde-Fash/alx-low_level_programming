@@ -1,58 +1,35 @@
-/* description
-*/ 
-#include "main.h"
-
-/**
- * _putchar - Writes a character to stdout
- * @c: The character to write
- *
- * Return: On suces, 1. On err, -1 s rtned and errno s set.
- */
-int _putchar(char c)
-{
-	/* Your _putchar implementation goes here */
-	return (0); /* Replce wth actual implemn */
-}
-
-/**
- * times_table - Prints the 9 times table starting with 0
- */
+/* times_table - prints the 9 times table, starting with 0 */
 void times_table(void)
 {
-	int row, col, result;
+	int i, j, result;
 
-	for (row = 0; row <= 9; row++)
+	for (i = 0; i <= 9; i++)
 	{
-		for (col = 0; col <= 9; col++)
+		for (j = 0; j <= 9; j++)
 		{
-			result = row * col;
-			if (col == 0)
-				_putchar('0'); /* Print the first element without a leading space */
+			result = i * j;
+
+			/* Print the result */
+			if (j == 0)
+				_putchar('0');
+			else if (result < 10)
+			{
+			_putchar(' ');
+				_putchar(result + '0');
+			}
 			else
+			{
+				_putchar((result / 10) + '0');
+				_putchar((result % 10) + '0');
+			}
+
+			/* Print a comma and space unless it's the last column */
+			if (j < 9)
 			{
 				_putchar(',');
 				_putchar(' ');
-				if (result < 10)
-					_putchar(' '); /* Add a leading space for single-digit numbers */
-			}
-
-			/* Print the result */
-			if (result >= 10)
-			{
-				_putchar(result / 10 + '0');
-				_putchar(result % 10 + '0');
-			}
-			else
-			{
-				_putchar(result + '0');
 			}
 		}
-		_putchar('\n'); /* Move to the next line after each row */
+		_putchar('\n');
 	}
-}
-
-int main(void)
-{
-	times_table();
-	return (0);
 }
