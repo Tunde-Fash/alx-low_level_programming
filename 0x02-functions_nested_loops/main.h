@@ -1,8 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/* Function prototype for _putchar */
 int _putchar(char c);
-void jack_bauer(void);
+
+/* Function prototype for times_table */
+void times_table(void);
 
 #endif /* MAIN_H */
-
