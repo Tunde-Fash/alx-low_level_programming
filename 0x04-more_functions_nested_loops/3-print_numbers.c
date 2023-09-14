@@ -1,18 +1,18 @@
+// print_numbers.c
 #include "main.h"
 
 /**
- * print_most_numbers - Prints numbers from 0 to 9, excluding 2 and 4.
+ * print_numbers - Prints numbers from 0 to 9 followed by a new line.
  */
-void print_most_numbers(void)
+void print_numbers(void)
 {
-	char digit;
+	char digit = '0';  // Initialize digit to '0'
 
-	for (digit = '0'; digit <= '9'; digit++)
+	while (digit <= '9')
 	{
-		if (digit != '2' && digit != '4')
-		{
-			_putchar(digit);
-		}
+		_putchar(digit);  // Call _putchar to print the current digit
+		digit++;          // Increment digit
 	}
-	_putchar('\n');
+
+	_putchar('\n');  // Print a new line at the end
 }
