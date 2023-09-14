@@ -26,4 +26,6 @@ void fizzBuzz(int n);
 
 void print_triangle(int size);
 
+long largest_prime_factor(long n);
+
 #endif /* MAIN_H */
