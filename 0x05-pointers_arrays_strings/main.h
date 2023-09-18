@@ -5,6 +5,11 @@
 
 #include <limits.h>
 
+#define PASSWORD_LENGTH 8         // Define the desired password length
+#define NUM_PASSWORDS_TO_GENERATE 5 // Define the number of passwords to generate
+
+char *generate_password(int length)
+
 void print_array(int *a, int n);
 
 void reset_to_98(int *n);
