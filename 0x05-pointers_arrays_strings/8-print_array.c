@@ -11,7 +11,6 @@ void print_array(int *a, int n)
 		return;
 
 	int i;
-
 	for (i = 0; i < n; i++)
 	{
 		printf("%d", a[i]); /* Print the current element */
