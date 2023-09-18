@@ -7,7 +7,7 @@
 void reset_to_98(int *n)
 {
 	/* Check if n is not NULL before dereferencing */
-	if (n != NULL)
+	if (n != 0)
 	{
 		*n = 98;
 	}
