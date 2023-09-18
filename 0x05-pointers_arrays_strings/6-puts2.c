@@ -1,4 +1,10 @@
-/* puts2.c */
+/*
+ * puts2.c
+ * Description: This file contains the implementation of the puts2 function,
+ * which prints every other character of a given string, starting with the
+ * first character, followed by a new line.
+ */
+
 #include "main.h"
 
 void puts2(char *str)
