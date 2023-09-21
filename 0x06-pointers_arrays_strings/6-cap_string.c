@@ -1,43 +1,32 @@
 #include "main.h"
 
 /**
- * is_separator - Checks if a character is a word separator.
- * @c: The character to check.
- * Return: 1 if it's a separator, 0 otherwise.
- */
-int is_separator(char c)
-{
-	char separators[] = " \t\n,;.!?\"(){}";
-	int i;
-
-	for (i = 0; separators[i]; i++)
-	{
-		if (c == separators[i])
-			return (1);
-	}
-	return (0);
-}
-
-/**
  * cap_string - Capitalizes all words in a string.
- * @s: The input string.
- * Return: Pointer to the modified string.
+ * @str: The input string.
+ *
+ * Return: A pointer to the modified string.
  */
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
-	int i;
+	int i, cap_next = 1;
 
-	if (s == NULL || s[0] == '\0')
-		return (s);
-
-	for (i = 0; s[i]; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (s[i] >= 'a' && s[i] <= 'z')
+		if (cap_next)
+			{
+			if (str[i] >= 'a' && str[i] <= 'z')
+				str[i] -= 32; /* Convert to uppercase */
+			cap_next = 0;
+		}
+		/* Check for word separators */
+		if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+			|| str[i] == ',' || str[i] == ';' || str[i] == '.'
+			|| str[i] == '!' || str[i] == '?' || str[i] == '"'
+			|| str[i] == '(' || str[i] == ')' || str[i] == '{' || str[i] == '}')
 		{
-			if (i == 0 || is_separator(s[i - 1]))
-				s[i] -= 32; /* Convert to uppercase */
+			cap_next = 1;
 		}
 	}
 
-	return (s);
+	return (str);
 }
