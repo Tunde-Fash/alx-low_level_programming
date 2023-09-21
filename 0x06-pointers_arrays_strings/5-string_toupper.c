@@ -7,15 +7,15 @@
  */
 char *string_toupper(char *str)
 {
-	int i = 0;
+	char *current = str;
 
-	while (str[i] != '\0')
+	while (*current)
 	{
-		if (_is_lowercase(str[i]))
+		if (*current >= 'a' && *current <= 'z')
 		{
-			str[i] = str[i] - 32; /* Convert to uppercase */
+			*current = *current - ('a' - 'A');
 		}
-		i++;
+		current++;
 	}
 
 	return (str);
