@@ -20,5 +20,5 @@ char *_strchr(char *s, char c)
 	}
 
 	/* If c is not found, return NULL */
-    return (0);
+	return (0);
 }
