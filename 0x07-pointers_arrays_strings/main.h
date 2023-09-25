@@ -12,5 +12,8 @@ unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 
 char *_strstr(char *haystack, char *needle);
+int _strlen(char *s);
+int _strncmp(char *s1, char *s2, int n);
+char *_memcpy(char *dest, char *src, unsigned int n);
 
 #endif /* MAIN_H */
