@@ -1,21 +1,38 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
 
 /**
- * print_diagsums - Prints the sum of the diagonals of a square matrix.
- * @a: The pointer to the square matrix.
- * @size: The size of the matrix (number of rows or columns).
+ * print_diagsums - Prints the sum of the two diagonals of a square matrix
+ * @a: The input square matrix
+ * @size: The size of the matrix
  */
 void print_diagsums(int *a, int size)
 {
-	int sum1 = 0; /* Sum of the primary diagonal (top-left to bottom-right) */
-	int sum2 = 0; /* Sum of the secondary diagonal (top-right to bottom-left) */
+	int sum_diag1 = 0; /* Initialize the sum for the first diagonal */
+	int sum_diag2 = 0; /* Initialize the sum for the second diagonal */
 
 	for (int i = 0; i < size; i++)
 	{
-		sum1 += a[i * size + i]; /*Sum of the primary diagonal */
-		sum2 += a[i * size + (size - 1 - i)]; /* Sum of the secondary diagonal */
+		sum_diag1 += *(a + i * size + i);          /* Sum elements o*/
+		sum_diag2 += *(a + i * size + (size - 1 - i)); /* Sum n */
 	}
 
-	printf("%d, %d\n", sum1, sum2);
+	/* Print the sums without using printf */
+	char buffer[12]; /* Assuming the sum cand) */
+
+	/* Convert and print sum_diag1 */
+	int length_diag1 = snprintf(buffer, sizeof(buffer), "%d", sum_diag1);
+
+	write(1, buffer, length_diag1);
+
+	/* Print a space */
+	write(1, " ", 1);
+
+	/* Convert and print sum_diag2 */
+	int length_diag2 = snprintf(buffer, sizeof(buffer), "%d", sum_diag2);
+
+	write(1, buffer, length_diag2);
+
+	/* Print a newline character */
+	write(1, "\n", 1);
 }
