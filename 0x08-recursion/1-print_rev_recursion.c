@@ -1,11 +1,6 @@
 #include "main.h"
 #include <unistd.h>
 
-
-{
-	return (write(1, &c, 1));
-}
-
 /**
  * _print_rev_recursion - Prints a string in reverse using recursion.
  * @s: The string to be printed in reverse.
