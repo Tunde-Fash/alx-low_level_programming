@@ -3,89 +3,68 @@
 #include <stdlib.h>
 
 /**
- * is_digit - Check if a string is a positive integer.
- * @str: The input string to check.
- *
- * Return: 1 if the string is a positive integer, 0 otherwise.
+ * _putchar - Writes a character to stdout.
+ * @c: The character to be printed.
+ * Return: On success, the number of characters written.
  */
-int is_digit(char *str)
+int _putchar(char c)
 {
-	if (!str)
-	return (0);
-
-	while (*str)
-	{
-	if (*str < '0' || *str > '9')
-	return (0);
-	str++;
-	}
-
-	return (1);
+	return (write(1, &c, 1));
 }
 
 /**
- * str_to_int - Convert a string to an integer.
- * @str: The string to convert.
- *
- * Return: The integer value of the string.
+ * is_digit - Checks if a character is a digit.
+ * @c: The character to be checked.
+ * Return: 1 if c is a digit, 0 otherwise.
  */
-int str_to_int(char *str)
+int is_digit(char c)
 {
-	int result = 0;
-
-	while (*str)
-	{
-	result = result * 10 + (*str - '0');
-	str++;
-	}
-
-	return (result);
+	return (c >= '0' && c <= '9');
 }
 
 /**
- * add_positive_numbers - Add positive numbers from command line arguments.
- * @argc: The number of command line arguments.
- * @argv: An array of command line arguments as strings.
- *
- * Return: 0 if successful, 1 if an error occurred.
+ * add_positive_numbers - Adds positive numbers.
+ * @argc: The number of arguments.
+ * @argv: An array of arguments as strings.
+ * Return: The sum of positive numbers or an error code.
  */
 int add_positive_numbers(int argc, char *argv[])
 {
-	int sum = 0;
+	int i, sum = 0;
 
 	if (argc == 1)
 	{
-	printf("0\n");
+	_putchar('0');
+	_putchar('\n');
 	return (0);
 	}
 
-	for (int i = 1; i < argc; i++)
+	for (i = 1; i < argc; i++)
 	{
-	if (is_digit(argv[i]))
-	{
-		int num = str_to_int(argv[i];
+	int j = 0;
 
-		if (num > 0)
-		sum += num;
-	}
-	else
+	while (argv[i][j])
 	{
-	printf("Error\n");
-	return (1);
+	if (!is_digit(argv[i][j]))
+	{
+		_putchar('E');
+		_putchar('r');
+		_putchar('r');
+		_putchar('o');
+		_putchar('r');
+		_putchar('\n');
+		return (1);
 	}
+	j++;
+	}
+
+	sum += atoi(argv[i]);
 	}
 
 	printf("%d\n", sum);
 	return (0);
 }
 
-/**
- * main - Entry point of the program.
- * @argc: The number of command line arguments.
- * @argv: An array of command line arguments as strings.
- *
- * Return: 0 if successful, 1 if an error occurred.
- */
 int main(int argc, char *argv[])
 {
 	return (add_positive_numbers(argc, argv));
