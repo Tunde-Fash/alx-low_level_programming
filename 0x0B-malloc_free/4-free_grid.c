@@ -9,14 +9,15 @@
  * Description: This function takes a pointer to a 2D grid and its height,
  * and it frees the memory allocated for each row and then for the grid itself.
  */
-void free_grid(int **grid, int height)
-{
-	if (grid == NULL)
-	return;
+void free_grid(int **grid, int height) {
+    int i;
 
-	for (int i = 0; i < height; i++)
-	{
-	free(grid[i]);
+    if (grid == NULL || height <= 0) {
+        return; // Nothing to free or invalid height.
+    }
+
+    for (i = 0; i < height; i++) {
+        free(grid[i]); // Free each row
 	}
 
 	free(grid);
