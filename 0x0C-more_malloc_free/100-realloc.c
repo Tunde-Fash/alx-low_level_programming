@@ -1,52 +1,59 @@
-#include <stdlib.h>
 #include "main.h"
 
 /**
  * _realloc - Reallocates a memory block.
- * @ptr: Pointer to the previously allocated memory block.
- * @old_size: Size (in bytes) of the old memory block.
- * @new_size: New size (in bytes) for the memory block.
+ * @ptr: Pointer to the previously allocated memory block (or NULL).
+ * @old_size: Size of the old memory block in bytes.
+ * @new_size: New size of the memory block in bytes.
  *
- * Return: Pointer to the reallocated memory block, or NULL on failure.
+ * Return: Pointer to the newly allocated memory block.
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
     void *new_ptr;
 
-    if (new_size == old_size)
-        return ptr;
+    /* Handle special cases */
+
+    if (new_size == 0 && ptr != NULL)
+    {
+        free(ptr);
+        return (NULL);
+    }
 
     if (ptr == NULL)
     {
-        new_ptr = malloc(new_size);
-        if (new_ptr == NULL)
-            return NULL;
-        return new_ptr;
+        return (malloc(new_size));
     }
 
-    if (new_size == 0)
-    {
-        free(ptr);
-        return NULL;
-    }
-
-    if (new_size > old_size)
-    {
-        new_ptr = malloc(new_size);
-        if (new_ptr == NULL)
-            return NULL;
-        for (unsigned int i = 0; i < old_size; i++)
-            *((char *)new_ptr + i) = *((char *)ptr + i);
-        free(ptr);
-        return new_ptr;
-    }
+    /* Allocate a new memory block */
 
     new_ptr = malloc(new_size);
     if (new_ptr == NULL)
-        return NULL;
-    for (unsigned int i = 0; i < new_size; i++)
-        *((char *)new_ptr + i) = *((char *)ptr + i);
+    {
+        return (NULL);
+    }
+
+    /* Copy data from the old block to the new block */
+
+    if (new_size <= old_size)
+    {
+        for (unsigned int i = 0; i < new_size; i++)
+        {
+            *((char *)new_ptr + i) = *((char *)ptr + i);
+        }
+    }
+    else
+    {
+        for (unsigned int i = 0; i < old_size; i++)
+        {
+            *((char *)new_ptr + i) = *((char *)ptr + i);
+        }
+    }
+
+    /* Free the old memory block */
+
     free(ptr);
-    return new_ptr;
+
+    return (new_ptr);
 }
 
