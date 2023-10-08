@@ -9,14 +9,13 @@
  */
 void *malloc_checked(unsigned int b)
 {
-    void *ptr = malloc(b);
+	void *ptr = malloc(b);
 
-    if (ptr == NULL)
-    {
-        /* If malloc fails, exit with status 98 */
-        exit(98);
-    }
+	if (ptr == NULL)
+	{
+	/* If malloc fails, exit with status 98 */
+	exit(98);
+	}
 
-    return (ptr);
+	return (ptr);
 }
-
