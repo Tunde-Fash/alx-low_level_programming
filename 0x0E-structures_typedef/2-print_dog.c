@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stddef.h>
 
 struct dog {
     char *name;
@@ -8,22 +8,16 @@ struct dog {
 };
 
 /**
- * print_dog - Prints information about a dog
- * @d: Pointer to a struct dog
- *
- * This function prints the name, age, and owner of a dog. If any of these
- * fields are NULL, it prints "(nil)" for that field. If the input pointer
- * d is NULL, this function does nothing.
+ * print_dog - Prints the elements of a struct dog.
+ * @d: A pointer to the struct dog to be printed.
  */
-void print_dog(struct dog *d);
-
-int main() {
-    struct dog my_dog;
-    my_dog.name = "Buddy";
-    my_dog.age = 3.5;
-    my_dog.owner = "John Doe";
-
-    print_dog(&my_dog);
-
-    return 0;
+void print_dog(struct dog *d)
+{
+    if (d != NULL)
+    {
+        printf("Name: %s\n", (d->name != NULL) ? d->name : "(nil)");
+        printf("Age: %.6f\n", d->age);
+        printf("Owner: %s\n", (d->owner != NULL) ? d->owner : "(nil)");
+    }
 }
+
