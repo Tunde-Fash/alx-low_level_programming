@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stddef.h>
 
-struct dog {
-    char *name;
-    float age;
-    char *owner;
+struct dog
+{
+	char *name;
+	float age;
+	char *owner;
 };
 
 /**
@@ -13,11 +14,10 @@ struct dog {
  */
 void print_dog(struct dog *d)
 {
-    if (d != NULL)
-    {
-        printf("Name: %s\n", (d->name != NULL) ? d->name : "(nil)");
-        printf("Age: %.6f\n", d->age);
-        printf("Owner: %s\n", (d->owner != NULL) ? d->owner : "(nil)");
-    }
+	if (d != NULL)
+	{
+	printf("Name: %s\n", (d->name != NULL) ? d->name : "(nil)");
+	printf("Age: %.6f\n", d->age);
+	printf("Owner: %s\n", (d->owner != NULL) ? d->owner : "(nil)");
+	}
 }
-
