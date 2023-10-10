@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stddef.h>
+#include "dog.h"
+
 /**
  * print_dog - Prints the elements of a struct dog.
  * @d: A pointer to the struct dog to be printed.
