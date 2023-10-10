@@ -1,13 +1,5 @@
 #include <stdio.h>
 #include <stddef.h>
-
-struct dog
-{
-	char *name;
-	float age;
-	char *owner;
-};
-
 /**
  * print_dog - Prints the elements of a struct dog.
  * @d: A pointer to the struct dog to be printed.
