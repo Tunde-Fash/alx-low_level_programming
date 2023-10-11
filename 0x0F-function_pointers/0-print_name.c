@@ -2,53 +2,36 @@
 #include "function_pointers.h"
 
 /**
- * print_name - Prints a name using a function pointer.
- * @name: The name to print.
- * @f: The function pointer to the printing function.
+ * print_name - Prints a name using a function pointer
+ * @name: The name to be printed
+ * @f: A function pointer to a function that prints the name
  */
-void print_name(char *name, void (*f)(char *)) {
-    if (name && f)
+void print_name(char *name, void (*f)(char *))
+{
+    if (name != NULL && f != NULL)
         f(name);
 }
 
 /**
- * print_name_orthodox - A function to print a name orthographically.
- * @name: The name to print.
+ * print_name_with_putchar - A function to print a name using _putchar
+ * @name: The name to be printed
  */
-void print_name_orthodox(char *name) {
-    if (name)
+void print_name_with_putchar(char *name)
+{
+    while (*name)
     {
-        while (*name)
-        {
-            _putchar(*name);
-            name++;
-        }
-        _putchar('\n');
+        _putchar(*name);
+        name++;
     }
+    _putchar('\n');
 }
 
 /**
- * print_name_reversed - A function to print a name reversed.
- * @name: The name to print.
+ * _putchar - A custom putchar function
+ * @c: The character to be printed
  */
-void print_name_reversed(char *name) {
-    if (name)
-    {
-        int i = 0;
-        while (name[i] != '\0')
-            i++;
-        for (i -= 1; i >= 0; i--)
-            _putchar(name[i]);
-        _putchar('\n');
-    }
-}
-
-int main(void) {
-    char *name = "John";
-
-    print_name(name, print_name_orthodox);
-    print_name(name, print_name_reversed);
-
-    return (0);
+int _putchar(char c)
+{
+    return write(1, &c, 1);
 }
 
