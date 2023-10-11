@@ -12,11 +12,7 @@ typedef struct op
 	int (*f)(int a, int b);
 }	op_t;
 
-int add(int a, int b);
-int sub(int a, int b);
-int mul(int a, b);
-int div(int a, b);
-int mod(int a, b);
+int (*get_op_func(char *s))(int, int);
 
 #endif
 
