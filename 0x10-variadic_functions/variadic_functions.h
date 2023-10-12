@@ -3,18 +3,15 @@
 
 #include <stdarg.h>
 
-/**
- * struct format_t - Struct format_t
- *
- * @format: The format specifier
- * @f: The function associated with the format specifier
- */
-typedef struct format_t
+typedef struct print_format
 {
 	char *format;
-	void (*f)(va_list);
-} format_t;
+	void (*func)(va_list);
+}
+	print_format_t;
 
+
+void print_numbers(const char *separator, const unsigned int n, ...);
 int sum_them_all(const unsigned int n, ...);
 
 #endif /* VARIADIC_FUNCTIONS_H */
