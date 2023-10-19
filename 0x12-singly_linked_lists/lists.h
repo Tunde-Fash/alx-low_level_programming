@@ -19,17 +19,7 @@ typedef struct list_s
 
 size_t print_list(const list_t *h);
 
-/* Structure for the linked list */
-typedef struct list_s
-{
-    int n;
-    struct list_s *next;
-} list_t;
-
-/* Function prototypes */
 size_t list_len(const list_t *h);
-
-#endif /* LISTS_H */
 
 
 #endif /* LISTS_H */
