@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 
 /* Helper function to print error messages */
 void print_error(const char *message, const char *filename, int exit_code) {
