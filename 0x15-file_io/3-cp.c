@@ -7,9 +7,6 @@
 
 #define BUF_SIZE 1024
 
-int _putchar(char c) {
-    return write(STDERR_FILENO, &c, 1);
-}
 
 int error_handler(int code, ...) {
     va_list args;
